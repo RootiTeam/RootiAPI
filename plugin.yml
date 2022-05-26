@@ -1,0 +1,23 @@
+name: RootiAPI
+main: ratnikov.Loader
+version: "1.1.0dev"
+api: ["1.0.0"]
+
+load: POSTWORLD
+author: David Ratnikov (https://github.com/ddosnikgit)
+website: https://github.com/RootiTeam/RootiAPI
+commands:
+ spawn:
+  description: 'Телепорт на спавн'
+ fly:
+  description: 'Режим полета'
+ gm:
+  description: 'Изменить режим игры'
+ money:
+  description: 'Узнать свой баланс'
+ addmoney:
+  description: 'Выдать монеты'
+ remmoney:
+  description: 'Забрать монеты'
+ getmoney:
+  description: 'Получить монеты другого игрока'
