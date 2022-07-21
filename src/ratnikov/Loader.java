@@ -54,7 +54,7 @@ public class Loader extends PluginBase implements Listener{
 				sender.sendMessage(SERVER_NAME + "Используйте данную команду в игре!");
 				return false;
 			}
-			toPlayer(sender).teleport(new Position(this.getServer().getDefaultLevel().getSafeSpawn().x, this.getServer().getDefaultLevel().getSafeSpawn().y, this.getServer().getDefaultLevel().getSafeSpawn().z, this.getServer().getDefaultLevel()));
+			toPlayer(sender).teleport(this.getServer().getDefaultLevel().getSafeSpawn());
 			sender.sendMessage(SERVER_NAME + "Вы телепортированы на спавн сервера!");
 			break;
 			case "fly":
