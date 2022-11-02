@@ -27,7 +27,7 @@ public class Loader extends PluginBase implements Listener{
 		this.getLogger().info("Следите за актуальной версией плагина -> https://github.com/RootiTeam/RootiAPI");
 	}
 
-    @EventHandler(ignoreCancelled = true, priority = EventPriority.NORMAL)
+        @EventHandler(ignoreCancelled = true, priority = EventPriority.NORMAL)
 	public void handleJoin(PlayerJoinEvent event) {
 	   Player p = event.getPlayer();
 	   event.setJoinMessage("");
@@ -38,7 +38,7 @@ public class Loader extends PluginBase implements Listener{
 		return Economy.getInstance();
 	}
 
-    public static boolean isNumeric(String str) {
+        public static boolean isNumeric(String str) {
 		return str.matches("-?\\d+(\\.\\d+)?");
 	}
 
