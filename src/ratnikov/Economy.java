@@ -21,7 +21,7 @@ public class Economy implements Listener {
     }
 
     public Double getMoney(Player player) {
-        return (double) this.main.money.get(player.getName().toLowerCase());
+        return (double) this.main.money.get(player.getPlayerInfo().getLowerCaseName());
     }
 
     public Double getMoneyToNick(String nickname) {
@@ -29,7 +29,7 @@ public class Economy implements Listener {
     }
 
     public void addMoney(Player player, Double value) {
-        this.main.money.set(player.getName().toLowerCase(), (this.getMoney(player) + value));
+        this.main.money.set(player.getPlayerInfo().getLowerCaseName(), (this.getMoney(player) + value));
         this.main.money.save();
     }
 
@@ -39,7 +39,7 @@ public class Economy implements Listener {
     }
 
     public void remMoney(Player player, Double value) {
-        this.main.money.set(player.getName().toLowerCase(), (this.getMoney(player) - value));
+        this.main.money.set(player.getPlayerInfo().getLowerCaseName(), (this.getMoney(player) - value));
         this.main.money.save();
     }
 
@@ -50,7 +50,7 @@ public class Economy implements Listener {
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.NORMAL)
     public void handleLogin(PlayerPreLoginEvent event) {
-        String nickname = event.getPlayer().getName().toLowerCase();
+        String nickname = event.getPlayer().getPlayerInfo().getLowerCaseName();
         if (!this.main.money.exists(nickname)) {
             this.main.money.set(nickname, 0);
             this.main.money.save();
