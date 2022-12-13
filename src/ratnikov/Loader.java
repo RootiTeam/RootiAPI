@@ -42,10 +42,6 @@ public class Loader extends PluginBase implements Listener{
 		return str.matches("-?\\d+(\\.\\d+)?");
 	}
 
-	public Player toPlayer(CommandSender sender) {
-		return (Player) sender;
-	}
-
 	@Deprecated
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		switch(command.getName()) {
@@ -54,7 +50,7 @@ public class Loader extends PluginBase implements Listener{
 				sender.sendMessage(SERVER_NAME + "Используйте данную команду в игре!");
 				return false;
 			}
-			toPlayer(sender).teleport(this.getServer().getDefaultLevel().getSafeSpawn());
+			((Player)sender).teleport(this.getServer().getDefaultLevel().getSafeSpawn());
 			sender.sendMessage(SERVER_NAME + "Вы телепортированы на спавн сервера!");
 			break;
 			case "fly":
@@ -67,7 +63,7 @@ public class Loader extends PluginBase implements Listener{
 				return false;
 			}
 			sender.sendMessage(SERVER_NAME + "Вы успешно " + (toPlayer(sender).getAllowFlight() ? "выключили" : "включили") + " режим флая.");
-			toPlayer(sender).setAllowFlight(!toPlayer(sender).getAllowFlight());
+			((Player)sender).setAllowFlight(!toPlayer(sender).getAllowFlight());
 			break;
 			case "gm":
 			if (!(sender instanceof Player)) {
@@ -84,11 +80,11 @@ public class Loader extends PluginBase implements Listener{
 			}
 			switch(args[0]) {
 				case "c":
-				toPlayer(sender).setGamemode(1);
+				((Player)sender).setGamemode(1);
 				sender.sendMessage(SERVER_NAME + "Ваш игровой режим изменен на Креатив.");
 				break;
 				case "s":
-				toPlayer(sender).setGamemode(0);
+				((Player)sender).setGamemode(0);
 				sender.sendMessage(SERVER_NAME + "Ваш игровой режим изменен на Выживание.");
 				break;
 			}
